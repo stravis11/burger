@@ -1,13 +1,13 @@
 <div class="container font-color font-style">
 
-    <h1 class="text-center"><i class="fas fa-utensils fa-spin"></i> Eat-Da-Burger!</h1>
+    <h1 class="text-center"><i class="fas fa-hamburger"></i> Eat-Da-Burger!</h1>
 
     <br>
     <hr class="style12">
 
     <div class="row d-lg-flex justify-content-around">
         <div class="col-lg-6">
-            <h3 class="text-center order-color">Burgers You Can Order</h3>
+            <h3 class="text-center order-color">Burgers You Can Eat</h3>
             {{#each burgers}} {{#unless this.devoured}}
             <div class="text-center">
                 <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
