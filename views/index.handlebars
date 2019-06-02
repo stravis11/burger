@@ -1,56 +1,49 @@
-<div class="container">
-    <div class="card-panel blue darken-4 center">
-        <h1 class="indigo-text text-lighten-5">Eat-Da-Burger</h1>
-    </div>
+<div class="container font-color font-style">
 
-    <div class="row">
-        <div class="left-align s6">
-            <ul>
-                {{#each burgers}}
-                {{#unless this.devoured}}
-                <div>
-                    <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
-                        <ul>
-                            <li class='burgerAvailable'>
-                                {{this.id}} {{this.burger_name}}
-                                <button type="submit" class="devourBurger">Devour!</button>
-                            </li>
-                        </ul>
+    <h1 class="text-center"><i class="fas fa-utensils fa-spin"></i> Eat-Da-Burger!</h1>
 
-                    </form>
-                </div>
-                {{/unless}}
-                {{/each}}
-            </ul>
+    <br>
+    <hr class="style12">
+
+    <div class="row d-lg-flex justify-content-around">
+        <div class="col-lg-6">
+            <h3 class="text-center order-color">Burgers You Can Order</h3>
+            {{#each burgers}} {{#unless this.devoured}}
+            <div class="text-center">
+                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                    <button type="submit" class='btn btn-success btn-margin'> {{this.burger_name}}</button>
+                </form>
+            </div>
+            {{/unless}} {{/each}}
         </div>
 
-        <div class="right-align s6">
-            <ul>
-                {{#each burgers}}
-                {{#if this.devoured}}
-                <div class='burgerEaten'>
-                    <div>
+        <div class="col-lg-6">
+            <h3 class="text-center eaten-color">Burgers Devoured</h3>
+            <div class="d-block">
+                {{#each burgers}} {{#if this.devoured}}
+                <div class='text-center'>
+                    <div class="btn btn-dark btn-margin">
                         {{this.burger_name}}
                     </div>
                 </div>
-                {{/if}}
-                {{/each}}
-            </ul>
+                {{/if}} {{/each}}
+            </div>
         </div>
     </div>
 
-    <div class="row center-align s12">
-        <hr>
-        <br><br>
-        <h4>Add A Burger Option</h4>
-        <div>
-            <form action="/api/burgers" method="POST">
-                <input type="text" id="name" name="burger_name" placeholder="Burger Name">
-                <button type="submit" class="addBurger">Add Burger</button>
+    <br>
+    <hr class="style12">
+
+    <h2 class="add-color text-center">Add A Burger Option</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="/burgers" method="POST">
+                <input type="text" class="form-control btn-margin" id="name" name="burger_name">
+                <br>
+                <button type="submit" class="add-burger-button btn btn-warning btn-margin">Add Burger</button>
             </form>
         </div>
     </div>
-</div>
-</div>
-</div>
+
 </div>
