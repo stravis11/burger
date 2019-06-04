@@ -1,5 +1,5 @@
 // Set up MySQL connection.
-var mysql = require("mysql2");
+var mysql = require("mysql");
 
 // For Heroku
 if (process.env.JAWSDB_URL) {
@@ -10,7 +10,7 @@ if (process.env.JAWSDB_URL) {
     port: 3306,
     host: "localhost",
     user: "root",
-    password: "timrp123",
+    password: "",
     database: "burgers_db"
   });
 }
